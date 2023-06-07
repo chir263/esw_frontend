@@ -1,0 +1,13 @@
+{
+    "user": {
+        "user_name": "Mitansh Kayathwal",
+        "age": "18",
+        "sex": "Male",
+        "occupation": "Student"
+    },
+    "date_info": {
+        "02072022": "data_mk_02072022.json",
+        "30062022": "data_mk_30062022.json",
+        "29062022": "data_mk_29062022.json"
+    }
+}

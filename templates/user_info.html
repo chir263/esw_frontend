@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{username}}</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='css/favicon.png') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/user.css') }}"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1 style="margin-top: 10px;">
+        <img src="{{ url_for('static', filename='css/icon.png') }}" /><br>
+        {{username}}
+      </h1>
+      <p>Track Analysis</p>
+    </div>
+
+    <div class="navbar" id="navbar">
+      <a href="#lsr" onclick="window.location.href = '#lsr';">LSR</a>
+      <a href="#obs" onclick="window.location.href = '#obs';">Obstacles</a>
+      <a class="right" href="http://sleepgang.herokuapp.com">Log out</a>
+    </div>
+
+    <div class="row">
+      <div class="side" style="width: 20%">
+        <h2 style="text-align: center">Profile</h2>
+        <div class="fakeimg" style="height: inherit">
+        </div>
+        <h3 style="text-align: center">Overall Sleep Analysis:</h3>
+        <p><str>The graphs below show how well you have slept till date:</p>
+        <p>
+         <strong> Graph 1 </strong>shows <strong>Sleep Score vs Sleep Efficiency</strong> which are 2 cannonical
+          parameters for measuring quality of sleep.
+        </p>
+        <div class="fakeimg" id="lsr" style="height: 30%; background-color: #383838">
+          <canvas id="overall_analysis" style="width: 80%; background-color: #383838;"></canvas>
+          <br>
+        </div>
+        <p>Graph 2 shows Sleep Score vs Date.</p>
+
+        <div class="fakeimg" id="obs" style="height: 30%; background-color: #383838">
+          <br>
+          <canvas id="sleep_scr" style="width: 80%; background-color: #383838;"></canvas>
+          <br>
+        </div>
+        <br />
+      </div>
+    <div id="graph">
+      <div id="tooltip"></div>
+      <!-- <br><br><br><br> -->
+    </div>
+      <!-- </div> -->
+    </div>
+
+    <div class="footer" id="check2">
+      <h2>Esw Peeps</h2>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <script src="{{ url_for('static', filename='js/user_info.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

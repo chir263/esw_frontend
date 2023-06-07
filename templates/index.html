@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='css/favicon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Esw Peeps</title>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="active" href="#home" style="padding: 5px;"><img src="{{ url_for('static', filename='css/icon.png') }}"
+                height="38px" width="60px" style="padding: 0;margin:0;"></a>
+        <a href="#about" style="color: white; font-size: 20px;"><strong>Esw Peeps</strong></a>
+        <div class="login-container">
+            <form action="/main" method="post">
+                {% if notexist %}
+                <font color="red">{{ username }} not exists  </font>
+                {% endif %}
+                <input type="text" placeholder="Robot ID" id="username" name="username" required>
+                <button type="submit">Track</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="first-section" class="bg">
+    </div>
+    <center>
+        <div id="content" style="align-items: start;">
+            <br>
+            <img src="{{ url_for('static', filename='css/icon.png') }}">
+            <h1 style="color: white; margin-top: 0;text-shadow: 0 0 2px #FFFFFF, 0 0 2px #FFFFFF;">Esw Peeps
+            </h1>
+            <p style="margin: 10px; color:rgb(255,255,255);font-size:13px;">
+                This project's main objective is to monitor a person's sleeping habits.
+                <strong>Temperature, humidity, luminosity</strong>, and a person's motion during sleep and the length of
+                time
+                they slept are the factors that we used to analyse a person's sleep pattern.
+            </p>
+            <p style="margin: 10px; color:rgb(255,255,255);font-size:13px;">
+                To track a person's sleep, we are using an esp32 with sensors and periodically transferring data
+                to <strong>OM2M</strong>. The data is then extracted from oneM2M using <strong>Python and Flask</strong>,
+                and the data is then analysed.
+                Additionally, you are accessing our analysis right now using a cloud-based solution that we have
+                developed.
+            </p>
+            <br>
+            <img src="{{ url_for('static', filename='css/hum.png') }}">
+            <img src="{{ url_for('static', filename='css/tem.png') }}">
+            <img src="{{ url_for('static', filename='css/lt.png') }}">
+            <img src="{{ url_for('static', filename='css/slp.png') }}">
+            <br>
+            <br>
+        </div>
+    </center>
+    <script>
+        document.getElementById("first-section").style.transition = "1s";
+        document.getElementById("content").style.transition = "1s";
+        i = 0
+        setInterval(function () { myFunc() }, 4000);
+
+        function myFunc() {
+            if ((i++) % 2) {
+                document.getElementById("first-section").style.backgroundImage = "url('{{ url_for('static', filename='css/d.jpg') }}')";
+                document.getElementById("content").style.backgroundColor = "rgba(0, 0, 0, 0.59)"
+
+            } else {
+                document.getElementById("first-section").style.backgroundImage = "url('{{ url_for('static', filename='css/q1.gif') }}')";
+                document.getElementById("content").style.backgroundColor = "rgba(0, 0, 0, 0.39)"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
